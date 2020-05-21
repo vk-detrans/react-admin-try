@@ -12,19 +12,29 @@ import { UserList } from './users'
 import { PostList, PostCreate, PostEdit } from './posts'
 import Dashboard from './dashboard/index.js'
 
-const i18nProvider = polyglotI18nProvider((locale) => {
+const i18nProvider = polyglotI18nProvider(locale => {
   if (locale === 'en') {
     // initial call, must return synchronously
     return englishMessages
   }
-  return import(`./i18n/${locale}.js`).then((messages) => messages.default)
+  return import(`./i18n/${locale}.js`).then(messages => messages.default)
 }, 'en')
 
 const dataProvider = jsonServerProvider('https://jsonplaceholder.typicode.com')
 const App = () => (
-  <Admin dataProvider={dataProvider} i18nProvider={i18nProvider} dashboard={Dashboard}>
+  <Admin
+    dataProvider={dataProvider}
+    i18nProvider={i18nProvider}
+    dashboard={Dashboard}
+  >
     <LanguageSwitcher />
-    <Resource name='posts' list={PostList} icon={PostsIcon} create={PostCreate} edit={PostEdit} />
+    <Resource
+      name='posts'
+      list={PostList}
+      icon={PostsIcon}
+      create={PostCreate}
+      edit={PostEdit}
+    />
     <Resource name='users' list={UserList} icon={UsersIcon} />
   </Admin>
 )
