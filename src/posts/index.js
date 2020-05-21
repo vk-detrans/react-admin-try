@@ -5,6 +5,7 @@ import {
   TextField,
   ReferenceField,
   EditButton,
+  Create,
   Edit,
   SimpleForm,
   ReferenceInput,
@@ -12,7 +13,7 @@ import {
   TextInput,
 } from 'react-admin'
 
-export const PostList = (props) => (
+export const PostList = props => (
   <List {...props}>
     <Datagrid rowClick='edit'>
       <TextField disabled source='id' />
@@ -26,7 +27,19 @@ export const PostList = (props) => (
   </List>
 )
 
-export const PostEdit = (props) => (
+export const PostCreate = props => (
+  <Create {...props}>
+    <SimpleForm>
+      <ReferenceInput source='userId' reference='users'>
+        <SelectInput optionText='name' />
+      </ReferenceInput>
+      <TextInput source='title' />
+      <TextInput multiline source='body' />
+    </SimpleForm>
+  </Create>
+)
+
+export const PostEdit = props => (
   <Edit {...props}>
     <SimpleForm>
       <TextInput disabled source='id' />

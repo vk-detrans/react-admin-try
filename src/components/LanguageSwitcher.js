@@ -15,7 +15,7 @@ const languages = {
   },
 }
 
-const LanguageSwitcher = (props) => {
+const LanguageSwitcher = props => {
   const setLocale = useSetLocale()
   const locale = useLocale()
   const t = useTranslate()
