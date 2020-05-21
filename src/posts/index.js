@@ -9,13 +9,13 @@ import {
   SimpleForm,
   ReferenceInput,
   SelectInput,
-  TextInput
+  TextInput,
 } from 'react-admin'
 
 export const PostList = (props) => (
   <List {...props}>
     <Datagrid rowClick='edit'>
-      <TextField source='id' />
+      <TextField disabled source='id' />
       <ReferenceField source='userId' reference='users'>
         <TextField source='name' />
       </ReferenceField>
@@ -26,13 +26,15 @@ export const PostList = (props) => (
   </List>
 )
 
-export const PostEdit = props => (
+export const PostEdit = (props) => (
   <Edit {...props}>
-      <SimpleForm>
-          <ReferenceInput source="userId" reference="users"><SelectInput optionText="id" /></ReferenceInput>
-          <TextInput source="id" />
-          <TextInput source="title" />
-          <TextInput source="body" />
-      </SimpleForm>
+    <SimpleForm>
+      <TextInput disabled source='id' />
+      <ReferenceInput source='userId' reference='users'>
+        <SelectInput optionText='name' />
+      </ReferenceInput>
+      <TextInput source='title' />
+      <TextInput multiline source='body' />
+    </SimpleForm>
   </Edit>
-);
+)
