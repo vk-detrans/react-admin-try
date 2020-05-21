@@ -13,7 +13,8 @@ const customMessages = {
     localeLanguages: {
       English: 'English',
       Arabic: 'Arabic',
-    }
+    },
+    dashboard: "Dashboard"
   },
 }
 

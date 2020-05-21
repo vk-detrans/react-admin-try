@@ -1,5 +1,5 @@
 import React from 'react'
-import { Admin, Resource, EditGuesser } from 'react-admin'
+import { Admin, Resource } from 'react-admin'
 import jsonServerProvider from 'ra-data-json-server'
 import polyglotI18nProvider from 'ra-i18n-polyglot'
 import PostsIcon from '@material-ui/icons/ListSharp'
@@ -10,6 +10,7 @@ import englishMessages from './i18n/en.js'
 import LanguageSwitcher from './components/LanguageSwitcher'
 import { UserList } from './users'
 import { PostList, PostCreate, PostEdit } from './posts'
+import Dashboard from './dashboard/index.js'
 
 const i18nProvider = polyglotI18nProvider((locale) => {
   if (locale === 'en') {
@@ -21,7 +22,7 @@ const i18nProvider = polyglotI18nProvider((locale) => {
 
 const dataProvider = jsonServerProvider('https://jsonplaceholder.typicode.com')
 const App = () => (
-  <Admin dataProvider={dataProvider} i18nProvider={i18nProvider}>
+  <Admin dataProvider={dataProvider} i18nProvider={i18nProvider} dashboard={Dashboard}>
     <LanguageSwitcher />
     <Resource name='posts' list={PostList} icon={PostsIcon} create={PostCreate} edit={PostEdit} />
     <Resource name='users' list={UserList} icon={UsersIcon} />

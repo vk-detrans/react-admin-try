@@ -22,7 +22,6 @@ const LanguageSwitcher = props => {
 
   return (
     <div>
-      <div>{t('custom.language')}</div>
       <Button
         disabled={locale === languages.en.locale}
         onClick={() => setLocale(languages.en.locale)}

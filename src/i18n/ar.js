@@ -22,10 +22,13 @@ const customMessages = {
   },
 }
 
+const arAction = arabicMessages.ra.action
+const customAction = customMessages.ra.action
+
 const combinedMessages = {
   ...arabicMessages,
   ...customMessages,
-  ra: { ...arabicMessages.ra, ...customMessages.ra },
+  ra: { ...arabicMessages.ra, ...customMessages.ra, action: {...arAction, ...customAction} },
 }
 
 export default combinedMessages
