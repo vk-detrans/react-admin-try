@@ -2,12 +2,13 @@ import React from 'react'
 import { List, Datagrid, TextField, EmailField, SimpleList } from 'react-admin'
 import MyUrlField from '../components/MyUrlField'
 import { useMediaQuery } from '@material-ui/core'
+import { RTL } from '../App'
 
 export const UserList = props => {
   const isSmall = useMediaQuery(theme => theme.breakpoints.down('sm'))
 
   return (
-    <>
+    <RTL>
       <List perPage={4} {...props}>
         {isSmall ? (
           <SimpleList
@@ -28,6 +29,6 @@ export const UserList = props => {
           </Datagrid>
         )}
       </List>
-    </>
+    </RTL>
   )
 }
